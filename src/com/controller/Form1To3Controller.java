@@ -7,21 +7,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@RequestMapping("forms1-3")
+@RequestMapping("/forms1-3")
 @Controller
 public class Form1To3Controller {
 	
 	/////////////////////////////////
 	////// FORM 1
 	
-	@RequestMapping("show-form-1")
+	@RequestMapping("/show-form-1")
 	public String showForm() {
 		return "/form-1";
 	}
 		
-	@RequestMapping("process-form-1")
+	@RequestMapping("/process-form-1")
 	public String processForm() {
-		return "redirect:/";
+		return "main-menu";
 	}
 	
 	//////FORM 1
@@ -33,12 +33,12 @@ public class Form1To3Controller {
 	/////////////////////////////////
 	////// FORM 2
 	
-	@RequestMapping("show-form-2")
+	@RequestMapping("/show-form-2")
 	public String showForm2() {		
 		return "/form-2";
 	}
 	
-	@RequestMapping("process-form-2")
+	@RequestMapping("/process-form-2")
 	public String processForm2(HttpServletRequest request, Model model) {
 		// read the request parameter from the HTML form
 		String firstName = request.getParameter("firstName");
@@ -52,7 +52,7 @@ public class Form1To3Controller {
 		// add message to the model
 		model.addAttribute("message", result);
 		
-		return "redirect:/";
+		return "main-menu";
 	}
 	
 	////// FORM 2
@@ -63,12 +63,12 @@ public class Form1To3Controller {
 	/////////////////////////////////
 	////// FORM 3
 	
-	@RequestMapping("show-form-3")
+	@RequestMapping("/show-form-3")
 	public String showForm3() {		
 		return "form-3";
 	}
 	
-	@RequestMapping("process-form-3")
+	@RequestMapping("/process-form-3")
 	public String processForm3(
 			@RequestParam("firstName") String firstName,
 			Model model) {
@@ -82,8 +82,8 @@ public class Form1To3Controller {
 		// add message to the model
 		model.addAttribute("message", result);
 		
-		return "redirect:/";
+		return "main-menu";
 	}
-	////// FORM 2
+	////// FORM 3
 	/////////////////////////////////
 }
